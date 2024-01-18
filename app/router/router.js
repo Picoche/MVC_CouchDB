@@ -11,12 +11,12 @@ routerLivres.get("/boutiques/:userId", (req, res) => {
     controllers.getBoutiquesByUserId(req, res)
 })
 
-routerLivres.get("/livres/:numlivre/pages", (req, res) => {
-    controllers.getPages(req, res)
+routerLivres.get("/:boutique/produits", (req, res) => {
+    controllers.getProduits(req, res)
 })
 
-routerLivres.get("/livres/:numlivre/pages/:numpage", (req, res) => {
-    controllers.getPageById(req, res)
+routerLivres.get("/:produit", (req, res) => {
+    controllers.getProduitById(req, res)
 })
 
 routerLivres.post("/livres", (req, res) => {

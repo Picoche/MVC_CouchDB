@@ -19,16 +19,16 @@ exports.getBoutiques = (req, res) => {
     return models.getBoutiques(req, res)
 }
 
-exports.getBoutiqueByUserId = (req, res) => {
-    return models.getBoutiqueByUserId(req, res)
+exports.getBoutiquesByUserId = (req, res) => {
+    return models.getBoutiquesByUserId(req, res)
 }
 
-exports.getPages = (req, res) => {
-    return models.getPages(req, res)
+exports.getProduits = (req, res) => {
+    return models.getProduits(req, res)
 }
 
-exports.getPageById = (req, res) => {
-    return models.getPageById(req, res)
+exports.getProduitById = (req, res) => {
+    return models.getProduitById(req, res)
 }
 
 exports.addLivre = (req, res) => {
