@@ -3,12 +3,12 @@ const routerLivres = express.Router()
 
 const controllers = require("../controller/controller")
 
-routerLivres.get("/livres", (req, res) => {
-    controllers.getLivres(req, res)
+routerLivres.get("/boutiques", (req, res) => {
+    controllers.getBoutiques(req, res)
 })
 
-routerLivres.get("/livres/:numlivre", (req, res) => {
-    controllers.getLivreById(req, res)
+routerLivres.get("/boutiques/:userId", (req, res) => {
+    controllers.getBoutiquesByUserId(req, res)
 })
 
 routerLivres.get("/livres/:numlivre/pages", (req, res) => {

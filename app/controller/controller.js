@@ -15,12 +15,12 @@ const livreEditSchema = Joi.object({
     pages: Joi.array()
 })
 
-exports.getLivres = (req, res) => {
-    return models.getLivres(req, res)
+exports.getBoutiques = (req, res) => {
+    return models.getBoutiques(req, res)
 }
 
-exports.getLivreById = (req, res) => {
-    return models.getLivreById(req, res)
+exports.getBoutiqueByUserId = (req, res) => {
+    return models.getBoutiqueByUserId(req, res)
 }
 
 exports.getPages = (req, res) => {

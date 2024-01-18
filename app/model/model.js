@@ -1,28 +1,28 @@
-const nano = require("nano")("http://admin:root@127.0.0.1:5984");
+const nano = require("nano")("https://couchdb-fabien-hombert.alwaysdata.net:6984");
 
-const db = nano.db.use("livres")
+const db = nano.db.use("fabien-hombert_boutique")
 
-exports.getLivres = async (req, res) => {
+exports.getBoutiques = async (req, res) => {
     const query = {
         selector: {},
         fields: []
     }
-    const livres = await db.find(query)
-    res.json(livres.docs)
+    const boutiques = await db.find(query)
+    res.json(boutiques.docs)
 }
 
-exports.getLivreById = async (req, res) => {
+exports.getBoutiquesByUserId = async (req, res) => {
     console.log(req.params)
     const query = {
-        selector: {"numero": parseInt(req.params.numlivre)},
+        selector: {"commercantId": req.params.userId},
         fields: []
     }
-    const livre = await db.find(query)
+    const boutique = await db.find(query)
 
-    if(!livre) {
-        res.status(404).json("Livre non trouvé.")
+    if(!boutique) {
+        res.status(404).json("Ce commerçant ne possède pas de boutiques.")
     } else {
-        res.json(livre.docs)
+        res.json(boutique.docs)
     }
 }
 
