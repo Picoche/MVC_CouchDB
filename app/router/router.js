@@ -19,16 +19,28 @@ routerLivres.get("/:produit", (req, res) => {
     controllers.getProduitById(req, res)
 })
 
-routerLivres.post("/livres", (req, res) => {
-    controllers.addLivre(req, res)
+routerLivres.post("/boutique", (req, res) => {
+    controllers.addBoutique(req, res)
 })
 
-routerLivres.delete("/livres/:numlivre", (req, res) => {
-    controllers.removeLivre(req, res)
+routerLivres.post("/produit", (req, res) => {
+    controllers.addProduit(req, res)
 })
 
-routerLivres.put("/livres/:numlivre", (req, res) => {
-    controllers.editLivre(req, res)
+routerLivres.delete("/boutiques/:boutique", (req, res) => {
+    controllers.removeBoutique(req, res)
+})
+
+routerLivres.delete("/produits/:produit", (req, res) => {
+    controllers.removeBoutique(req, res)
+})
+
+routerLivres.put("/boutiques/:boutique", (req, res) => {
+    controllers.editBoutique(req, res)
+})
+
+routerLivres.put("/produits/:produit", (req, res) => {
+    controllers.editProduit(req, res)
 })
 
 module.exports = { routerLivres }

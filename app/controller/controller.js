@@ -1,18 +1,50 @@
 const models = require("../model/model")
 const Joi = require("joi")
 
-const livreAddSchema = Joi.object({
-    numero: Joi.number().required(),
-    titre: Joi.string().required(),
-    pages: Joi.array().required()
+const boutiqueAddSchema = Joi.object({
+    commercantId: Joi.string().required(),
+    adresse: Joi.string().required(),
+    nbOfRating: Joi.number().required(),
+    nom: Joi.string().required(),
+    numTel: Joi.string().required(),
+    openDays: Joi.string().required(),
+    rating: Joi.number().required(),
+    produits: Joi.array().required(),
+    categorieId: Joi.string().required(),
 })
 
-const livreEditSchema = Joi.object({
+const produitAddSchema = Joi.object({
+    boutiqueId: Joi.string().required(),
+    nbOfRating: Joi.number().required(),
+    nom: Joi.string().required(),
+    prix: Joi.number().required(),
+    quantite: Joi.number().required(),
+    rating: Joi.number().required(),
+})
+
+const boutiqueEditSchema = Joi.object({
     _id: Joi.string().required(),
     _rev: Joi.string().required(),
-    numero: Joi.number(),
-    titre: Joi.string(),
-    pages: Joi.array()
+    commercantId: Joi.string(),
+    adresse: Joi.string(),
+    nbOfRating: Joi.number(),
+    nom: Joi.string(),
+    numTel: Joi.string(),
+    openDays: Joi.string(),
+    rating: Joi.number(),
+    produits: Joi.array(),
+    categorieId: Joi.string(),
+})
+
+const produitEditSchema = Joi.object({
+    _id: Joi.string().required(),
+    _rev: Joi.string().required(),
+    boutiqueId: Joi.string(),
+    nbOfRating: Joi.number(),
+    nom: Joi.string(),
+    prix: Joi.number(),
+    quantite: Joi.number(),
+    rating: Joi.number(),
 })
 
 exports.getBoutiques = (req, res) => {
@@ -31,14 +63,26 @@ exports.getProduitById = (req, res) => {
     return models.getProduitById(req, res)
 }
 
-exports.addLivre = (req, res) => {
-    return models.addLivre(req, res, livreAddSchema)
+exports.addBoutique = (req, res) => {
+    return models.addBoutique(req, res, boutiqueAddSchema)
 }
 
-exports.removeLivre = (req, res) => {
-    return models.removeLivre(req, res)
+exports.addProduit = (req, res) => {
+    return models.addProduit(req, res, produitAddSchema)
 }
 
-exports.editLivre = (req, res) => {
-    return models.editLivre(req, res, livreEditSchema)
+exports.removeBoutique = (req, res) => {
+    return models.removeBoutique(req, res)
+}
+
+exports.removeProduit= (req, res) => {
+    return models.removeProduit(req, res)
+}
+
+exports.editBoutique = (req, res) => {
+    return models.editBoutique(req, res, boutiqueEditSchema)
+}
+
+exports.editProduit = (req, res) => {
+    return models.editProduit(req, res, produitEditSchema)
 }
