@@ -1,4 +1,4 @@
-const nano = require("nano")("https://couchdb-fabien-hombert.alwaysdata.net:6984");
+const nano = require("nano")("https://fabien-hombert:Renouvier66@couchdb-fabien-hombert.alwaysdata.net:6984");
 
 const db = nano.db.use("fabien-hombert_boutiques")
 const dbProduits = nano.db.use("fabien-hombert_produits")
@@ -105,7 +105,7 @@ exports.addProduit = async (req, res, produitAddSchema) => {
 
 exports.removeBoutique = async (req, res) => {
     const query = {
-        selector: { "_id": parseInt(req.params._id) },
+        selector: { "_id": req.params._id },
         fields: ["_id", "_rev"]
     }
     const boutique = await db.find(query)
@@ -121,7 +121,7 @@ exports.removeBoutique = async (req, res) => {
 
 exports.removeProduit = async (req, res) => {
     const query = {
-        selector: { "_id": parseInt(req.params._id) },
+        selector: { "_id": req.params._id },
         fields: ["_id", "_rev"]
     }
     const produit = await db.find(query)
@@ -136,7 +136,7 @@ exports.removeProduit = async (req, res) => {
 
 exports.editBoutique = async (req, res, boutiqueEditSchema) => {
     const query = {
-        selector: { "_id": parseInt(req.params._id) },
+        selector: { "_id": req.params._id },
         fields: ["_id", "_rev"]
     }
     const boutiqueToUpdate = await db.find(query)
@@ -170,7 +170,7 @@ exports.editBoutique = async (req, res, boutiqueEditSchema) => {
 
 exports.editProduit = async (req, res, produitEditSchema) => {
     const query = {
-        selector: { "_id": parseInt(req.params._id) },
+        selector: { "_id": req.params._id },
         fields: ["_id", "_rev"]
     }
     const produitToUpdate = await db.find(query)
