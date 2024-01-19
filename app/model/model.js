@@ -127,7 +127,6 @@ exports.removeProduit = async (req, res) => {
         res.status(200).json("Produit supprimé avec succès.")
     }
   }
-};
 
 exports.editBoutique = async (req, res, boutiqueEditSchema) => {
     const query = {
@@ -193,4 +192,4 @@ exports.editProduit = async (req, res, produitEditSchema) => {
         }
     }
   }
-};
+
